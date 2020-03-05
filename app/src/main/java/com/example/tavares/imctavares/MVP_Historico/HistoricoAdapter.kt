@@ -3,7 +3,6 @@ package com.example.tavares.imctavares.MVP_Historico
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
-import android.support.v4.content.ContextCompat.startActivity
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -14,9 +13,7 @@ import com.example.tavares.imctavares.MVP_PesoAltura.repositorios.Repo_imcT
 import com.example.tavares.imctavares.R
 import kotlinx.android.synthetic.main.linha_historico.view.*
 import java.text.SimpleDateFormat
-import android.support.v4.content.ContextCompat.startActivity
-import com.example.tavares.imctavares.MVP_PesoAltura.PesoAlturaActivity
-import com.example.tavares.imctavares.MVP_Resumo.ResumoActivity
+import com.example.tavares.imctavares.MVP_PesoAltura.View.PesoAlturaActivity
 
 
 class HistoricoAdapter(
