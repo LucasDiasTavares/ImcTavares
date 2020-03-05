@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorLight_Gray">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/card_historico_tabela"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/retangule_rl_br_8"
+        android:backgroundTint="@color/colorLight_Gray"
+        android:paddingBottom="5dp"
+        app:cardBackgroundColor="#dddddd"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="8dp"
+        app:cardUseCompatPadding="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp">
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/txt_historico_peso"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:gravity="center"
+                android:textColor="@color/colorBlack"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@id/txt_historico_imc"
+                app:layout_constraintHorizontal_chainStyle="spread_inside"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/txt_historico_imc"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/colorBlack"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toTopOf="@+id/txt_historico_peso"
+                app:layout_constraintBottom_toBottomOf="@id/txt_historico_peso"
+                app:layout_constraintStart_toEndOf="@id/txt_historico_peso"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/txt_historico_dataPesagem"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/colorBlack"
+                android:textSize="15sp"
+                android:layout_marginRight="3dp"
+                android:layout_marginTop="3dp"
+                android:text=""
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/btn_historico_delete"
+                app:layout_constraintTop_toBottomOf="@id/txt_historico_peso" />
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/btn_historico_delete"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorBlack"
+                android:textSize="15sp"
+                android:text="deletar"
+                app:layout_constraintTop_toTopOf="@+id/txt_historico_dataPesagem"
+                app:layout_constraintBottom_toBottomOf="@id/txt_historico_dataPesagem"
+                app:layout_constraintStart_toEndOf="@id/txt_historico_dataPesagem"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.v7.widget.CardView>
+
+
+</android.support.constraint.ConstraintLayout>

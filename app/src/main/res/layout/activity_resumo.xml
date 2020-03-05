@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MVP_Resumo.ResumoActivity"
+    android:background="@color/colorLight_Blue">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/card_resumo_titulo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="#dddddd"
+        android:background="@drawable/retangule_rl_br_8"
+        android:backgroundTint="@color/colorLight_Gray"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:cardCornerRadius="8dp"
+        android:outlineSpotShadowColor="#ccc"
+        app:cardElevation="8dp"
+        app:cardUseCompatPadding="true"
+        android:paddingBottom="5dp"
+        >
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/txt_resumo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textSize="25sp"
+                android:text="Seu peso atual"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:textColor="@color/colorBlack"/>
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/txt_peso_inicial"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textSize="25sp"
+                tools:text="56,00kg"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/txt_resumo"
+                android:textColor="@color/colorBlack"/>
+
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/card_resumo_peso"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:outlineSpotShadowColor="#ccc"
+        android:background="@drawable/retangule_rl_br_8"
+        android:backgroundTint="@color/colorLight_Gray"
+        android:paddingBottom="5dp"
+        app:cardBackgroundColor="#dddddd"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="8dp"
+        app:cardUseCompatPadding="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/card_resumo_titulo">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/txt_resumo_Imc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/colorBlack"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:text="Seu IMC atual"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/txt_resumo_Imc_result"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/colorBlack"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@+id/txt_resumo_Imc"/>
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/card_resumo_tabela"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/retangule_rl_br_8"
+        android:backgroundTint="@color/colorLight_Gray"
+        android:paddingBottom="5dp"
+        app:cardBackgroundColor="#dddddd"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="8dp"
+        app:cardUseCompatPadding="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/card_resumo_peso" >
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            >
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/txt_resumo_tabela_l1_c1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/colorBlack"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:background="#ccc"
+                android:layout_marginRight="5dp"
+                android:text="IMC"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/txt_resumo_tabela_l1_c2"
+                app:layout_constraintTop_toTopOf="parent" />
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/txt_resumo_tabela_l1_c2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/colorBlack"
+                android:background="#ccc"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:text="Situação"
+                app:layout_constraintTop_toTopOf="@+id/txt_resumo_tabela_l1_c1"
+                app:layout_constraintBottom_toBottomOf="@id/txt_resumo_tabela_l1_c1"
+                app:layout_constraintStart_toEndOf="@id/txt_resumo_tabela_l1_c1"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/txt_resumo_tabela_l2_c1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/colorBlack"
+                android:textSize="15sp"
+                android:background="@color/colorLight_Blue"
+                android:layout_marginRight="3dp"
+                android:layout_marginTop="3dp"
+                android:text="Menor que 17.00"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/txt_resumo_tabela_l2_c2"
+                app:layout_constraintTop_toBottomOf="@id/txt_resumo_tabela_l1_c1" />
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/txt_resumo_tabela_l2_c2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/colorBlack"
+                android:background="@color/colorLight_Blue"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:text="Muito abaixo do peso"
+                app:layout_constraintTop_toTopOf="@+id/txt_resumo_tabela_l2_c1"
+                app:layout_constraintBottom_toBottomOf="@id/txt_resumo_tabela_l2_c1"
+                app:layout_constraintStart_toEndOf="@id/txt_resumo_tabela_l2_c1"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/txt_resumo_tabela_l3_c1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/colorBlack"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:background="@color/colorGray"
+                android:layout_marginRight="3dp"
+                android:layout_marginTop="3dp"
+                android:text="Entre 17.00 e 18.49"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/txt_resumo_tabela_l3_c2"
+                app:layout_constraintTop_toBottomOf="@id/txt_resumo_tabela_l2_c1" />
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/txt_resumo_tabela_l3_c2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/colorBlack"
+                android:background="@color/colorGray"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:text="Abaixo do peso"
+                app:layout_constraintTop_toTopOf="@+id/txt_resumo_tabela_l3_c1"
+                app:layout_constraintBottom_toBottomOf="@id/txt_resumo_tabela_l3_c1"
+                app:layout_constraintStart_toEndOf="@id/txt_resumo_tabela_l3_c1"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/txt_resumo_tabela_l4_c1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/colorBlack"
+                android:textSize="15sp"
+                android:background="@color/colorGreenLight"
+                android:layout_marginRight="3dp"
+                android:layout_marginTop="3dp"
+                android:text="Entre 18,5 e 24,99"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/txt_resumo_tabela_l4_c2"
+                app:layout_constraintTop_toBottomOf="@id/txt_resumo_tabela_l3_c1" />
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/txt_resumo_tabela_l4_c2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/colorBlack"
+                android:background="@color/colorGreenLight"
+                android:textSize="15sp"
+                android:text="Peso normal"
+                android:textStyle="bold"
+                app:layout_constraintTop_toTopOf="@+id/txt_resumo_tabela_l4_c1"
+                app:layout_constraintBottom_toBottomOf="@id/txt_resumo_tabela_l4_c1"
+                app:layout_constraintStart_toEndOf="@id/txt_resumo_tabela_l4_c1"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/txt_resumo_tabela_l5_c1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/colorBlack"
+                android:textSize="15sp"
+                android:background="@color/colorPrimary"
+                android:layout_marginRight="3dp"
+                android:layout_marginTop="3dp"
+                android:text="Entre 25 e 29,99"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/txt_resumo_tabela_l5_c2"
+                app:layout_constraintTop_toBottomOf="@id/txt_resumo_tabela_l4_c1" />
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/txt_resumo_tabela_l5_c2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/colorBlack"
+                android:background="@color/colorPrimary"
+                android:textSize="15sp"
+                android:text="Acima do peso"
+                android:textStyle="bold"
+                app:layout_constraintTop_toTopOf="@+id/txt_resumo_tabela_l5_c1"
+                app:layout_constraintBottom_toBottomOf="@id/txt_resumo_tabela_l5_c1"
+                app:layout_constraintStart_toEndOf="@id/txt_resumo_tabela_l5_c1"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/txt_resumo_tabela_l6_c1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/colorBlack"
+                android:textSize="15sp"
+                android:background="@color/colorRedLight"
+                android:layout_marginRight="3dp"
+                android:layout_marginTop="3dp"
+                android:text="Entre 30 e 34,99"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/txt_resumo_tabela_l6_c2"
+                app:layout_constraintTop_toBottomOf="@id/txt_resumo_tabela_l5_c1" />
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/txt_resumo_tabela_l6_c2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/colorBlack"
+                android:background="@color/colorRedLight"
+                android:textSize="15sp"
+                android:text="Obesidade I"
+                android:textStyle="bold"
+                app:layout_constraintTop_toTopOf="@+id/txt_resumo_tabela_l6_c1"
+                app:layout_constraintBottom_toBottomOf="@id/txt_resumo_tabela_l6_c1"
+                app:layout_constraintStart_toEndOf="@id/txt_resumo_tabela_l6_c1"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/txt_resumo_tabela_l7_c1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/colorBlack"
+                android:textSize="15sp"
+                android:background="@color/colorRed"
+                android:layout_marginRight="3dp"
+                android:layout_marginTop="3dp"
+                android:text="Entre 35 e 39,99"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/txt_resumo_tabela_l7_c2"
+                app:layout_constraintTop_toBottomOf="@id/txt_resumo_tabela_l6_c1" />
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/txt_resumo_tabela_l7_c2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/colorBlack"
+                android:background="@color/colorRed"
+                android:textSize="15sp"
+                android:text="Obesidade II (mórbida)"
+                android:textStyle="bold"
+                app:layout_constraintTop_toTopOf="@+id/txt_resumo_tabela_l7_c1"
+                app:layout_constraintBottom_toBottomOf="@id/txt_resumo_tabela_l7_c1"
+                app:layout_constraintStart_toEndOf="@id/txt_resumo_tabela_l7_c1"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/txt_resumo_tabela_l8_c1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/colorBlack"
+                android:textSize="15sp"
+                android:background="@color/colorDarkRed"
+                android:layout_marginRight="3dp"
+                android:layout_marginTop="3dp"
+                android:text="Acima de 40.00"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/txt_resumo_tabela_l8_c2"
+                app:layout_constraintTop_toBottomOf="@id/txt_resumo_tabela_l7_c1" />
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/txt_resumo_tabela_l8_c2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/colorBlack"
+                android:background="@color/colorDarkRed"
+                android:textSize="15sp"
+                android:text="Obesidade III (mórbida)"
+                android:textStyle="bold"
+                app:layout_constraintTop_toTopOf="@+id/txt_resumo_tabela_l8_c1"
+                app:layout_constraintBottom_toBottomOf="@id/txt_resumo_tabela_l8_c1"
+                app:layout_constraintStart_toEndOf="@id/txt_resumo_tabela_l8_c1"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+        </android.support.constraint.ConstraintLayout>
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/ver_historico"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:textColor="#fff"
+        android:textStyle="bold"
+        android:text="Ver Histórico"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="20dp"/>
+</android.support.constraint.ConstraintLayout>

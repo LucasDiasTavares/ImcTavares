@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">IMC Tavares</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="adicionar">Adicionar</string>
+    <string name="salvar">Salvar</string>
+    <string name="txt_inicio">Para acompanhar seu progresso, precisamos registrar seus dados inicias</string>
+    <string name="cancelar">cancelar</string>
+    <string name="logo">Logo</string>
+</resources>
