@@ -58,7 +58,7 @@ class Repo_imcT(private val context: Context) {
     }
 
 
-    fun getLastImct() : ImcT?{
+    fun getLastImct() : ImcT{
         return getAllImcT().last()
     }
 

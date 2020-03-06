@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.os.Handler
 import com.example.tavares.imctavares.MVP_PesoAltura.View.PesoAlturaActivity
 import com.example.tavares.imctavares.MVP_PesoAltura.repositorios.Repo_imcT
-import com.example.tavares.imctavares.MVP_Resumo.ResumoActivity
+import com.example.tavares.imctavares.MVP_Resumo.View.ResumoActivity
 
 class SplashScreenActivity : AppCompatActivity() {
 

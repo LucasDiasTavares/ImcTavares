@@ -23,7 +23,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".MVP_PesoAltura.View.PesoAlturaActivity" />
-        <activity android:name=".MVP_Resumo.ResumoActivity" />
+        <activity android:name=".MVP_Resumo.View.ResumoActivity" />
         <activity android:name=".MVP_Historico.HistoricoActivity"></activity>
     </application>
 
