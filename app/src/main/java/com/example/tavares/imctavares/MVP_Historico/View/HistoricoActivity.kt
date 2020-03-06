@@ -1,4 +1,4 @@
-package com.example.tavares.imctavares.MVP_Historico
+package com.example.tavares.imctavares.MVP_Historico.View
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -11,46 +11,50 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.LinearLayout
 import android.widget.Toast
+import com.example.tavares.imctavares.MVP_Historico.HistoricoAdapter
+import com.example.tavares.imctavares.MVP_Historico.HistoricoInterface.*
+import com.example.tavares.imctavares.MVP_Historico.Presenter.HistoricoPresenter
 import com.example.tavares.imctavares.MVP_PesoAltura.data.ImcT
 import com.example.tavares.imctavares.MVP_PesoAltura.repositorios.Repo_imcT
 import com.example.tavares.imctavares.R
 import com.example.tavares.imctavares.Utils.formatToString
 import kotlinx.android.synthetic.main.activity_historico.*
-import kotlinx.android.synthetic.main.add_imc_dialog_custom.*
 import kotlinx.android.synthetic.main.add_imc_dialog_custom.view.*
-import java.text.DecimalFormat
 import java.util.*
 import kotlin.collections.ArrayList
 
-class HistoricoActivity : AppCompatActivity(){
+class HistoricoActivity : AppCompatActivity(), View {
+
+    private var presenter: HistoricoPresenter? = null
+
     private var adapterHistorico : HistoricoAdapter?=null
     private var listImcs = ArrayList<ImcT>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_historico)
-        initComponents()
 
-        btn_adicionar?.setOnClickListener {
-            showDialogImc()
-        }
+        presenter = HistoricoPresenter(this)
+        initComponents()
 
     }
 
     private fun initComponents(){
-
         //setting toolbar
         setSupportActionBar(toolbar)
         //home navigation
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
+        btn_adicionar?.setOnClickListener {
+            showDialogImc()
+        }
         recyclerView.layoutManager = LinearLayoutManager(
                 this, LinearLayout.VERTICAL, false)
 
-        listImcs = Repo_imcT(this).getAllImcT()
-        adapterHistorico = HistoricoAdapter(this, listImcs)
+        val todosImcT = presenter?.mostrarListaImcts()
+        listImcs = todosImcT!!
+        adapterHistorico = presenter?.let { HistoricoAdapter(this, listImcs, presenter = it) }
         recyclerView.adapter = adapterHistorico
-
     }
 
 
@@ -89,8 +93,11 @@ class HistoricoActivity : AppCompatActivity(){
         //dialogView.txt_title.text = title
 
         dialogView.dialog_first_button.setOnClickListener {
-            salvar(dialogView.dialog_edit_peso.text.toString().toFloat(),
-                    dialogView.dialog_edit_altura.text.toString().toFloat())
+            val peso = dialogView.dialog_edit_peso.text.toString().toFloat()
+            val altura = dialogView.dialog_edit_altura.text.toString().toFloat()
+            presenter?.salvar(peso, altura)
+            listImcs.add(presenter?.mostrarUltimoImctAdicionado()!!)
+            adapterHistorico?.notifyItemInserted(listImcs.lastIndex)
             dialog?.dismiss()
         }
 
@@ -108,17 +115,5 @@ class HistoricoActivity : AppCompatActivity(){
         }
 
     }
-
-    private fun salvar(peso: Float, altura: Float): Int? {
-        val imc = peso / (altura * altura)
-        val imcT = ImcT(peso = peso, altura = altura, dataPesagem = Date(), imc =  imc.formatToString().toFloat())
-        val retorno = Repo_imcT(this).createAtImcT(imcT)
-
-        listImcs.add(imcT)
-        adapterHistorico?.notifyItemInserted(listImcs.lastIndex)
-
-        return retorno
-    }
-
 }
 

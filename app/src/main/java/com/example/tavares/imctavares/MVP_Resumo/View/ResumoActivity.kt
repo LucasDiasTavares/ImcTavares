@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
-import com.example.tavares.imctavares.MVP_Historico.HistoricoActivity
+import com.example.tavares.imctavares.MVP_Historico.View.HistoricoActivity
 import com.example.tavares.imctavares.MVP_Resumo.Presenter.ResumoPresenter
 import com.example.tavares.imctavares.MVP_Resumo.ResumoInterface
 import com.example.tavares.imctavares.R

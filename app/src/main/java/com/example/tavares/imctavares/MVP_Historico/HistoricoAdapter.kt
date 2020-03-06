@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import com.example.tavares.imctavares.MVP_Historico.Presenter.HistoricoPresenter
 import com.example.tavares.imctavares.MVP_PesoAltura.data.ImcT
 import com.example.tavares.imctavares.MVP_PesoAltura.repositorios.Repo_imcT
 import com.example.tavares.imctavares.R
@@ -18,7 +19,9 @@ import com.example.tavares.imctavares.MVP_PesoAltura.View.PesoAlturaActivity
 
 class HistoricoAdapter(
         private var context: Context,
-        private var list: ArrayList<ImcT> ) :RecyclerView.Adapter<HistoricoAdapter.MyViewHolder>() {
+        private var list: ArrayList<ImcT>,
+        var presenter: HistoricoInterface.Presenter) :RecyclerView.Adapter<HistoricoAdapter.MyViewHolder>() {
+
 
     override fun onCreateViewHolder(root: ViewGroup, p1: Int): MyViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.linha_historico, root, false)
@@ -59,8 +62,9 @@ class HistoricoAdapter(
 
         private fun removeItemHistorico(position: Int) {
             val id = list[position].id
-            Repo_imcT(context).deleteImcT(id ?: -1)
             list.removeAt(position)
+            presenter.deletarImct(id!!)
+            //Repo_imcT(context).deleteImcT(id ?: -1)
             Toast.makeText(context, "Deletado", Toast.LENGTH_SHORT).show()
             notifyItemRemoved(position)
         }
@@ -73,8 +77,6 @@ class HistoricoAdapter(
                     context.startActivity(intent)
                 }
         }
-
-
     }
 
 }

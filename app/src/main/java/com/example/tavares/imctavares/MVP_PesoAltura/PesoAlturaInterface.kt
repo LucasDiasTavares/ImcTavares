@@ -11,7 +11,6 @@ interface PesoAlturaInterface {
     interface View {
         //PesoAlturaAcivity
         fun initView()
-
     }
 
     interface Presenter {

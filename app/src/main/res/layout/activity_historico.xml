@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorLight_Gray"
-    tools:context=".MVP_Historico.HistoricoActivity">
+    tools:context=".MVP_Historico.View.HistoricoActivity">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
