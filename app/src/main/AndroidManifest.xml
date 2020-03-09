@@ -24,7 +24,8 @@
         </activity>
         <activity android:name=".MVP_PesoAltura.View.PesoAlturaActivity" />
         <activity android:name=".MVP_Resumo.View.ResumoActivity" />
-        <activity android:name=".MVP_Historico.View.HistoricoActivity"></activity>
+        <activity android:name=".MVP_Historico.View.HistoricoActivity" />
+        <activity android:name=".MVP.fragmentActivity"></activity>
     </application>
 
 </manifest>

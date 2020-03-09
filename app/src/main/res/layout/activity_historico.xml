@@ -41,4 +41,15 @@
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp" />
 
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/btn_fragment"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@drawable/ic_cardiogram"
+        android:textStyle="bold"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp" />
+
 </android.support.constraint.ConstraintLayout>

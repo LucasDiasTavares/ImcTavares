@@ -2,6 +2,7 @@ package com.example.tavares.imctavares.MVP_Historico.View
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.app.AlertDialog
@@ -11,16 +12,14 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.LinearLayout
 import android.widget.Toast
+import com.example.tavares.imctavares.MVP.fragmentActivity
 import com.example.tavares.imctavares.MVP_Historico.HistoricoAdapter
 import com.example.tavares.imctavares.MVP_Historico.HistoricoInterface.*
 import com.example.tavares.imctavares.MVP_Historico.Presenter.HistoricoPresenter
 import com.example.tavares.imctavares.MVP_PesoAltura.data.ImcT
-import com.example.tavares.imctavares.MVP_PesoAltura.repositorios.Repo_imcT
 import com.example.tavares.imctavares.R
-import com.example.tavares.imctavares.Utils.formatToString
 import kotlinx.android.synthetic.main.activity_historico.*
 import kotlinx.android.synthetic.main.add_imc_dialog_custom.view.*
-import java.util.*
 import kotlin.collections.ArrayList
 
 class HistoricoActivity : AppCompatActivity(), View {
@@ -33,6 +32,13 @@ class HistoricoActivity : AppCompatActivity(), View {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_historico)
+
+        btn_fragment?.setOnClickListener{
+            // start your next activity, FRAGMENT
+            val intent = Intent(this, fragmentActivity::class.java)
+            startActivity(intent)
+
+        }
 
         presenter = HistoricoPresenter(this)
         initComponents()

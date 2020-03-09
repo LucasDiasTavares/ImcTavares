@@ -6,4 +6,9 @@
     <string name="txt_inicio">Para acompanhar seu progresso, precisamos registrar seus dados inicias</string>
     <string name="cancelar">cancelar</string>
     <string name="logo">Logo</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="_1st_fragment">1st fragment</string>
+    <string name="_2nd_fragment">2nd fragment</string>
 </resources>
