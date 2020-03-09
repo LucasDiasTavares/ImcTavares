@@ -18,6 +18,6 @@ class FirstFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         first_fragment_text.text  = "1st Fragment"
-
     }
+
 }

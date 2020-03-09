@@ -32,14 +32,6 @@ class HistoricoActivity : AppCompatActivity(), View {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_historico)
-
-        btn_fragment?.setOnClickListener{
-            // start your next activity, FRAGMENT
-            val intent = Intent(this, fragmentActivity::class.java)
-            startActivity(intent)
-
-        }
-
         presenter = HistoricoPresenter(this)
         initComponents()
 
@@ -50,6 +42,13 @@ class HistoricoActivity : AppCompatActivity(), View {
         setSupportActionBar(toolbar)
         //home navigation
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        btn_fragment?.setOnClickListener{
+            // start your next activity, FRAGMENT
+            val intent = Intent(this, fragmentActivity::class.java)
+            startActivity(intent)
+
+        }
 
         btn_adicionar?.setOnClickListener {
             showDialogImc()
