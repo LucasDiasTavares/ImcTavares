@@ -2,23 +2,56 @@
 <android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#8BC34A"
-        android:gravity="center">
+        android:background="@color/blue_mobato_dark">
 
         <TextView
-            android:id="@+id/first_fragment_text"
+            android:id="@+id/first_fragment_text1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=""
             android:textColor="#FFFFFF"
             android:textSize="35sp"
             android:textStyle="bold"/>
+
+        <CheckBox
+            android:id="@+id/checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="Não"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+            android:id="@+id/first_fragment_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Teste"
+            android:textColor="#FFFFFF"
+            android:textSize="35sp"
+            android:textStyle="bold"/>
+
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+        <Button
+            android:id="@+id/btn_get_values"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="138dp"
+            android:text="Get Values"/>
 
     </LinearLayout>
 

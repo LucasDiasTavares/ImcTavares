@@ -62,21 +62,12 @@ class HistoricoActivity : AppCompatActivity(), HistoricoInterface.ViewImpl, Hack
 
     override fun onClickHack(viewClicked : View, position: Int) {
         when (viewClicked.id) {
-            R.id.btn_historico_info -> {
-                btnDetail(viewClicked, position)
-            }
             R.id.btn_historico_delete -> {
                 presenter?.removeItemHistorico(position)
                 Toast.makeText(this, "Deletado", Toast.LENGTH_SHORT).show()
                 mudaTask(position)
             }
         }
-    }
-
-    fun btnDetail(v: View, position: Int){
-        val fragmentTransaction = supportFragmentManager.beginTransaction()
-        fragmentTransaction.add(R.id.HistoricoFragmentXML, historicoFragment)
-        fragmentTransaction.commit()
     }
 
     override fun mudaTask(tamanhoLista: Int) {

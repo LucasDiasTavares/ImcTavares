@@ -40,7 +40,7 @@ class Repo_imcT(private val context: Context) {
             db_conection?.getConexaoDatabase()?.close()
             list.add(gerarObjImcT(cursor!!))
             try {
-                if (cursor != null) {
+                if (true) {
                     while (cursor.moveToNext()) {
                         list.add(gerarObjImcT(cursor))
                     }
@@ -48,7 +48,7 @@ class Repo_imcT(private val context: Context) {
             } catch (ex: Exception) {
                 Log.e("TAG_GET", ex.message)
             } finally {
-                cursor?.close()
+                cursor.close()
             }
         } else {
             db_conection?.getConexaoDatabase()?.close()

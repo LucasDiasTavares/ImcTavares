@@ -43,7 +43,6 @@ class HistoricoAdapter(
     inner class MyViewHolder(itemViewHolder: View) : RecyclerView.ViewHolder(itemViewHolder),View.OnClickListener {
         init {
             itemViewHolder.btn_historico_delete?.setOnClickListener(this)
-            itemViewHolder.btn_historico_info?.setOnClickListener(this)
         }
         override fun onClick(view: View) {
             hack.onClickHack(view, adapterPosition)
