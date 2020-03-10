@@ -65,7 +65,7 @@ class Repo_imcT(private val context: Context) {
 
     //Exemplo get a single item
     fun getImcT(id: Int): ImcT? {
-        val cursor = db_conection?.getConexaoDatabase()?.rawQuery("SELECT * FROM imcT WHERE id = $id ORDER BY ASC", null)
+        val cursor = db_conection?.getConexaoDatabase()?.rawQuery("SELECT * FROM imcT WHERE id = $id", null)
         cursor?.moveToLast()
 
         return try {

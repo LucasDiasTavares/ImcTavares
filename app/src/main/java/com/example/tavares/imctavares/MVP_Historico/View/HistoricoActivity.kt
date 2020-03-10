@@ -10,31 +10,37 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import android.widget.LinearLayout
 import android.widget.Toast
 import com.example.tavares.imctavares.MVP.fragmentActivity
 import com.example.tavares.imctavares.MVP_Historico.HistoricoAdapter
+import com.example.tavares.imctavares.MVP_Historico.HistoricoFragment
+import com.example.tavares.imctavares.MVP_Historico.HistoricoInterface
 import com.example.tavares.imctavares.MVP_Historico.HistoricoInterface.*
 import com.example.tavares.imctavares.MVP_Historico.Presenter.HistoricoPresenter
+import com.example.tavares.imctavares.MVP_PesoAltura.View.PesoAlturaActivity
 import com.example.tavares.imctavares.MVP_PesoAltura.data.ImcT
 import com.example.tavares.imctavares.R
+import com.example.tavares.imctavares.R.id.HistoricoFragmentXML
+import com.example.tavares.imctavares.Utils.HackListener
 import kotlinx.android.synthetic.main.activity_historico.*
 import kotlinx.android.synthetic.main.add_imc_dialog_custom.view.*
+import java.text.FieldPosition
 import kotlin.collections.ArrayList
 
-class HistoricoActivity : AppCompatActivity(), View {
+class HistoricoActivity : AppCompatActivity(), HistoricoInterface.ViewImpl, HackListener {
 
     private var presenter: HistoricoPresenter? = null
 
-    private var adapterHistorico : HistoricoAdapter?=null
-    private var listImcs = ArrayList<ImcT>()
+    private var historicoFragment = HistoricoFragment()
+    private var adapter : HistoricoAdapter?=null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_historico)
-        presenter = HistoricoPresenter(this)
+        presenter = HistoricoPresenter(this,this)
         initComponents()
-
     }
 
     private fun initComponents(){
@@ -43,25 +49,44 @@ class HistoricoActivity : AppCompatActivity(), View {
         //home navigation
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        btn_fragment?.setOnClickListener{
-            // start your next activity, FRAGMENT
-            val intent = Intent(this, fragmentActivity::class.java)
-            startActivity(intent)
-
-        }
-
         btn_adicionar?.setOnClickListener {
             showDialogImc()
         }
         recyclerView.layoutManager = LinearLayoutManager(
                 this, LinearLayout.VERTICAL, false)
 
-        val todosImcT = presenter?.mostrarListaImcts()
-        listImcs = todosImcT!!
-        adapterHistorico = presenter?.let { HistoricoAdapter(this, listImcs, presenter = it) }
-        recyclerView.adapter = adapterHistorico
+        adapter = HistoricoAdapter(this, presenter?.mostrarListaImcts()?:ArrayList(), presenter = presenter!!, hack = this)
+        recyclerView.adapter = adapter
+
     }
 
+    override fun onClickHack(viewClicked : View, position: Int) {
+        when (viewClicked.id) {
+            R.id.btn_historico_info -> {
+                btnDetail(viewClicked)
+            }
+            R.id.btn_historico_delete -> {
+                presenter?.removeItemHistorico(position)
+                Toast.makeText(this, "Deletado", Toast.LENGTH_SHORT).show()
+                mudaTask(position)
+            }
+        }
+    }
+
+    fun btnDetail(v: View){
+        val fragmentTransaction = supportFragmentManager.beginTransaction()
+        fragmentTransaction.add(R.id.myFragment, HistoricoFragment())
+        fragmentTransaction.commit()
+    }
+    /**/
+
+    override fun mudaTask(tamanhoLista: Int) {
+        if(tamanhoLista <= 0) {
+            val intent = Intent(this, PesoAlturaActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+            this.startActivity(intent)
+        }
+    }
 
     //setting menu in action bar
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -85,6 +110,14 @@ class HistoricoActivity : AppCompatActivity(), View {
         }
     }
 
+    override fun notifyAddItemHistorico(position: Int) {
+        adapter?.notifyItemInserted(position)
+    }
+
+    override fun notifyRemovedItemHistorico(position: Int) {
+        adapter?.notifyItemRemoved(position)
+    }
+
     @SuppressLint("InflateParams")
     fun showDialogImc(
             context: Context = this) {
@@ -101,8 +134,6 @@ class HistoricoActivity : AppCompatActivity(), View {
             val peso = dialogView.dialog_edit_peso.text.toString().toFloat()
             val altura = dialogView.dialog_edit_altura.text.toString().toFloat()
             presenter?.salvar(peso, altura)
-            listImcs.add(presenter?.mostrarUltimoImctAdicionado()!!)
-            adapterHistorico?.notifyItemInserted(listImcs.lastIndex)
             dialog?.dismiss()
         }
 

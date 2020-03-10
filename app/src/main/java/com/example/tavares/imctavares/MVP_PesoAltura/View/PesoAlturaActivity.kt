@@ -7,6 +7,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import com.example.tavares.imctavares.MVP_PesoAltura.PesoAlturaInterface
+import com.example.tavares.imctavares.MVP_PesoAltura.PesoAlturaInterface.*
 import com.example.tavares.imctavares.MVP_PesoAltura.Presenter.PesoAlturaPresenter
 import com.example.tavares.imctavares.MVP_Resumo.View.ResumoActivity
 import com.example.tavares.imctavares.R

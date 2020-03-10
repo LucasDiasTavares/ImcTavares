@@ -19,7 +19,11 @@
         app:cardUseCompatPadding="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
-
+        <FrameLayout
+            android:id="@+id/HistoricoFragmentXML"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -37,7 +41,7 @@
                 app:layout_constraintEnd_toStartOf="@id/txt_historico_imc"
                 app:layout_constraintHorizontal_chainStyle="spread_inside"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"/>
             <android.support.v7.widget.AppCompatTextView
                 android:id="@+id/txt_historico_imc"
                 android:layout_width="0dp"
@@ -55,12 +59,14 @@
                 android:id="@+id/txt_historico_dataPesagem"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:gravity="center"
                 android:textColor="@color/colorBlack"
-                android:textSize="15sp"
+                android:textSize="18sp"
+                android:gravity="center"
                 android:layout_marginRight="3dp"
-                android:layout_marginTop="3dp"
-                android:text=""
+                android:layout_marginEnd="3dp"
+                android:layout_marginTop="10dp"
+                android:text="09/03/2020"
+                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/btn_historico_delete"
                 app:layout_constraintTop_toBottomOf="@id/txt_historico_peso" />
@@ -68,17 +74,34 @@
                 android:id="@+id/btn_historico_delete"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:textColor="@color/colorBlack"
+                android:textColor="@color/colorWhite"
                 android:textSize="15sp"
                 android:text="deletar"
+                android:backgroundTint="@color/colorDarkRed"
+                android:textStyle="bold"
                 app:layout_constraintTop_toTopOf="@+id/txt_historico_dataPesagem"
                 app:layout_constraintBottom_toBottomOf="@id/txt_historico_dataPesagem"
                 app:layout_constraintStart_toEndOf="@id/txt_historico_dataPesagem"
+                app:layout_constraintEnd_toStartOf="@id/btn_historico_info"/>
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/btn_historico_info"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorWhite"
+                android:textSize="15sp"
+                android:text="info"
+                android:textStyle="bold"
+                android:backgroundTint="@color/colorPrimaryDark"
+                app:layout_constraintTop_toTopOf="@+id/txt_historico_dataPesagem"
+                app:layout_constraintBottom_toBottomOf="@id/txt_historico_dataPesagem"
+                app:layout_constraintStart_toEndOf="@id/btn_historico_delete"
                 app:layout_constraintEnd_toEndOf="parent"/>
 
         </android.support.constraint.ConstraintLayout>
-
+        </FrameLayout>
     </android.support.v7.widget.CardView>
+
+
 
 
 </android.support.constraint.ConstraintLayout>
