@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MVP_Historico.HistoricoFragment">
+    tools:context=".MVP_Historico.Fragments.HistoricoFragment">
 
     <TextView
         android:layout_width="match_parent"
@@ -12,6 +12,7 @@
         android:textColor="@color/colorWhite"
         android:textStyle="bold"
         android:textSize="20sp"
+        android:gravity="center"
         android:background="@color/colorDarkRed"/>
 
 </FrameLayout>

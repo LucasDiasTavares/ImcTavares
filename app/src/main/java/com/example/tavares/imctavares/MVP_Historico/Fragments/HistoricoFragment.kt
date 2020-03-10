@@ -1,4 +1,4 @@
-package com.example.tavares.imctavares.MVP_Historico
+package com.example.tavares.imctavares.MVP_Historico.Fragments
 
 
 import android.os.Bundle
@@ -15,6 +15,4 @@ class HistoricoFragment : Fragment() {
                               savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_historico, container, false)
     }
-
-
 }

@@ -15,18 +15,14 @@ import android.widget.LinearLayout
 import android.widget.Toast
 import com.example.tavares.imctavares.MVP.fragmentActivity
 import com.example.tavares.imctavares.MVP_Historico.HistoricoAdapter
-import com.example.tavares.imctavares.MVP_Historico.HistoricoFragment
+import com.example.tavares.imctavares.MVP_Historico.Fragments.HistoricoFragment
 import com.example.tavares.imctavares.MVP_Historico.HistoricoInterface
-import com.example.tavares.imctavares.MVP_Historico.HistoricoInterface.*
 import com.example.tavares.imctavares.MVP_Historico.Presenter.HistoricoPresenter
 import com.example.tavares.imctavares.MVP_PesoAltura.View.PesoAlturaActivity
-import com.example.tavares.imctavares.MVP_PesoAltura.data.ImcT
 import com.example.tavares.imctavares.R
-import com.example.tavares.imctavares.R.id.HistoricoFragmentXML
 import com.example.tavares.imctavares.Utils.HackListener
 import kotlinx.android.synthetic.main.activity_historico.*
 import kotlinx.android.synthetic.main.add_imc_dialog_custom.view.*
-import java.text.FieldPosition
 import kotlin.collections.ArrayList
 
 class HistoricoActivity : AppCompatActivity(), HistoricoInterface.ViewImpl, HackListener {
@@ -52,6 +48,10 @@ class HistoricoActivity : AppCompatActivity(), HistoricoInterface.ViewImpl, Hack
         btn_adicionar?.setOnClickListener {
             showDialogImc()
         }
+        btn_fragment?.setOnClickListener{
+            val intent = Intent(this, fragmentActivity::class.java)
+            startActivity(intent)
+        }
         recyclerView.layoutManager = LinearLayoutManager(
                 this, LinearLayout.VERTICAL, false)
 
@@ -63,7 +63,7 @@ class HistoricoActivity : AppCompatActivity(), HistoricoInterface.ViewImpl, Hack
     override fun onClickHack(viewClicked : View, position: Int) {
         when (viewClicked.id) {
             R.id.btn_historico_info -> {
-                btnDetail(viewClicked)
+                btnDetail(viewClicked, position)
             }
             R.id.btn_historico_delete -> {
                 presenter?.removeItemHistorico(position)
@@ -73,12 +73,11 @@ class HistoricoActivity : AppCompatActivity(), HistoricoInterface.ViewImpl, Hack
         }
     }
 
-    fun btnDetail(v: View){
+    fun btnDetail(v: View, position: Int){
         val fragmentTransaction = supportFragmentManager.beginTransaction()
-        fragmentTransaction.add(R.id.myFragment, HistoricoFragment())
+        fragmentTransaction.add(R.id.HistoricoFragmentXML, historicoFragment)
         fragmentTransaction.commit()
     }
-    /**/
 
     override fun mudaTask(tamanhoLista: Int) {
         if(tamanhoLista <= 0) {
